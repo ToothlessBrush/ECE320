@@ -2,3 +2,6 @@ Running: xsim.dir/KeyPadScanner_TB_behav/xsimk.exe -simmode gui -wdb KeyPadScann
 Design successfully loaded
 Design Loading Memory Usage: 7860 KB (Peak: 7860 KB)
 Design Loading CPU Usage: 31 ms
+Simulation completed
+Simulation Memory Usage: 8416 KB (Peak: 8416 KB)
+Simulation CPU Usage: 46 ms
