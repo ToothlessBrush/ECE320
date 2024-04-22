@@ -1,0 +1,11 @@
+0.7
+2020.2
+Apr 18 2022
+16:05:34
+C:/Vivado_labs/lab_4/lab_4.sim/sim_1/behav/xsim/glbl.v,1649976174,verilog,,,,glbl,,,,,,,,
+C:/Vivado_labs/lab_4/lab_4.srcs/sim_1/new/lab4_tb.v,1709099516,verilog,,,,lab4_tb,,,,,,,,
+C:/Vivado_labs/lab_4/lab_4.srcs/sources_1/new/Dff.v,1709097150,verilog,,C:/Vivado_labs/lab_4/lab_4.srcs/sources_1/new/Dff_async_reset.v,,Dff,,,,,,,,
+C:/Vivado_labs/lab_4/lab_4.srcs/sources_1/new/Dff_async_reset.v,1709097869,verilog,,C:/Vivado_labs/lab_4/lab_4.srcs/sources_1/new/Dff_async_reset_low.v,,Dff_async_reset,,,,,,,,
+C:/Vivado_labs/lab_4/lab_4.srcs/sources_1/new/Dff_async_reset_low.v,1709097215,verilog,,C:/Vivado_labs/lab_4/lab_4.srcs/sources_1/new/Dff_sync_reset.v,,Dff_async_reset_low,,,,,,,,
+C:/Vivado_labs/lab_4/lab_4.srcs/sources_1/new/Dff_sync_reset.v,1709097208,verilog,,C:/Vivado_labs/lab_4/lab_4.srcs/sources_1/new/Dff_sync_reset_low.v,,Dff_sync_reset,,,,,,,,
+C:/Vivado_labs/lab_4/lab_4.srcs/sources_1/new/Dff_sync_reset_low.v,1709097211,verilog,,C:/Vivado_labs/lab_4/lab_4.srcs/sim_1/new/lab4_tb.v,,Dff_sync_reset_low,,,,,,,,

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="synth_1" LaunchPart="xc7a50tcsg324-1" LaunchTime="1706772224" LaunchIncrCheckpoint="$PPRDIR/../../../Users/Johnk/OneDrive - MNSCU/Vivado Labs/lab0/project_1/project_1.srcs/utils_1/imports/synth_1/example3.dcp">
+  <File Type="PA-TCL" Name="structural.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="structural_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="structural_reports.tcl"/>
+  <File Type="RDS-RDS" Name="structural.vds"/>
+  <File Type="RDS-UTIL" Name="structural_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="structural_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="structural.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="structural_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="structural_timing_summary_synth.pb"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/structural.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/example3.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="structural"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <File Path="$PPRDIR/../../../Users/Johnk/OneDrive - MNSCU/Vivado Labs/lab0/project_1/project_1.srcs/utils_1/imports/synth_1/example3.dcp">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedInSteps" Val="synth_1"/>
+        <Attr Name="AutoDcp" Val="1"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>

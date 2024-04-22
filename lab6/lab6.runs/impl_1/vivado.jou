@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:48:16 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Wed Mar 13 12:47:39 2024
+# Process ID: 16636
+# Current directory: C:/Vivado_labs/lab6/lab6.runs/impl_1
+# Command line: vivado.exe -log lab6_top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source lab6_top.tcl -notrace
+# Log file: C:/Vivado_labs/lab6/lab6.runs/impl_1/lab6_top.vdi
+# Journal file: C:/Vivado_labs/lab6/lab6.runs/impl_1\vivado.jou
+# Running On: LAPTOP-14LFSBII, OS: Windows, CPU Frequency: 2803 MHz, CPU Physical cores: 4, Host memory: 16948 MB
+#-----------------------------------------------------------
+source lab6_top.tcl -notrace

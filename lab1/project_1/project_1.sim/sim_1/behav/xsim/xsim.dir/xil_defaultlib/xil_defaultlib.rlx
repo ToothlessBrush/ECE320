@@ -1,0 +1,9 @@
+0.7
+2020.2
+Apr 18 2022
+16:05:34
+C:/Vivado_labs/lab1/project_1/project_1.sim/sim_1/behav/xsim/glbl.v,1649976174,verilog,,,,glbl,,,,,,,,
+C:/Vivado_labs/lab1/project_1/project_1.srcs/sim_1/new/dataflow_sim.v,1706724935,verilog,,,,dataflow_sim,,,,,,,,
+C:/Vivado_labs/lab1/project_1/project_1.srcs/sim_1/new/structural_sim.v,1706722935,verilog,,,,structural_sim,,,,,,,,
+C:/Vivado_labs/lab1/project_1/project_1.srcs/sources_1/new/dataflow.v,1706725654,verilog,,C:/Vivado_labs/lab1/project_1/project_1.srcs/sim_1/new/dataflow_sim.v,,dataflow,,,,,,,,
+C:/Vivado_labs/lab1/project_1/project_1.srcs/sources_1/new/structural.v,1706721906,verilog,,C:/Vivado_labs/lab1/project_1/project_1.srcs/sim_1/new/structural_sim.v,,structural,,,,,,,,

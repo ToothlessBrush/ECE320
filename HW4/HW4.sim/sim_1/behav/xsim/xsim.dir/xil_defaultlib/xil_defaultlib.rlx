@@ -1,0 +1,11 @@
+0.7
+2020.2
+Apr 18 2022
+16:05:34
+C:/Users/Johnk/Downloads/sSegdisplay_8.v,1707935652,verilog,,C:/Vivado_labs/HW4/HW4.srcs/sources_1/new/twoDigitBCDAdder.v,,sSegDisplay_8,,,,,,,,
+C:/Vivado_labs/HW4/HW4.sim/sim_1/behav/xsim/glbl.v,1649976174,verilog,,,,glbl,,,,,,,,
+C:/Vivado_labs/HW4/HW4.srcs/sim_1/new/oneDigitTestBench.v,1708665809,verilog,,,,oneDigitTestBench,,,,,,,,
+C:/Vivado_labs/HW4/HW4.srcs/sim_1/new/twoDigitTestBench.v,1710290255,verilog,,,,twoDigitTestBench,,,,,,,,
+C:/Vivado_labs/HW4/HW4.srcs/sources_1/new/oneDigitBCDAdder.v,1708665540,verilog,,C:/Vivado_labs/HW4/HW4.srcs/sim_1/new/twoDigitTestBench.v,,oneDigitBCDAdder,,,,,,,,
+C:/Vivado_labs/HW4/HW4.srcs/sources_1/new/twoDigitBCDAdder.v,1709144533,verilog,,C:/Vivado_labs/HW4/HW4.srcs/sim_1/new/twoDigitTestBench.v,,twoDigitBCDAdder,,,,,,,,
+C:/Vivado_labs/lab3/project_1/project_1.srcs/sources_1/new/dataflow.v,1707935184,verilog,,C:/Vivado_labs/HW4/HW4.srcs/sources_1/new/oneDigitBCDAdder.v,,dataflow,,,,,,,,
