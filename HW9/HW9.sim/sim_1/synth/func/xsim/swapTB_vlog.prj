@@ -1,0 +1,7 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"swapTB_func_synth.v" \
+"../../../../../HW9.srcs/sim_1/new/swapTB.v" \
+
+# Do not sort compile order
+nosort
