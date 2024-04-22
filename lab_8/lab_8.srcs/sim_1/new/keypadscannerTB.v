@@ -32,31 +32,23 @@ module KeyPadScanner_TB;
     reg reset;
     reg [3:0] col;
     wire [3:0] row;
-    wire key_pressed;
 
     wire [3:0] key;
 
     // Instantiate the module under test
-    KeyPadScanner dut (
+    keyPadScanner uut (
         .clk(clk),
-        .col(col),
+        .column(col),
         .row(row),
         .reset(reset),
-        .key_pressed(key_pressed)
+        .keys(key)
     );
 
-    keypadInterpreter keyInterp (
-        .col(col),
-        .row(row),
-        .reset(reset),
-        .key_pressed(key_pressed),
-        .key(key)
-    );
 
     // Clock generation
     always begin #((CLK_PERIOD/2)) 
         clk = ~clk;
-    end;
+    end
 
     // Stimulus
     initial begin

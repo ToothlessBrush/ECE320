@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1713376063">
+  <File Type="POSTROUTE-PHYSOPT-RQS-RPT" Name="postroute_physopt_report_qor_suggestions_0.rpt"/>
   <File Type="ROUTE-PWR" Name="top_power_routed.rpt"/>
   <File Type="PA-TCL" Name="top.tcl"/>
   <File Type="ROUTE-PWR-SUM" Name="top_power_summary_routed.pb"/>
@@ -21,17 +22,19 @@
   <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
   <File Type="BITSTR-LTX" Name="top.ltx"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <File Type="NPI_FILE" Name="top.npi"/>
   <File Type="OPT-DRC" Name="top_drc_opted.rpt"/>
+  <File Type="RBD_FILE" Name="top.rbd"/>
   <File Type="OPT-HWDEF" Name="top.hwdef"/>
   <File Type="PLACE-IO" Name="top_io_placed.rpt"/>
   <File Type="PLACE-UTIL" Name="top_utilization_placed.rpt"/>
   <File Type="PLACE-UTIL-PB" Name="top_utilization_placed.pb"/>
-  <File Type="ROUTE-RQS" Name="top_routed.rqs"/>
   <File Type="PLACE-CTRL" Name="top_control_sets_placed.rpt"/>
-  <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
+  <File Type="ROUTE-RQS" Name="top_routed.rqs"/>
   <File Type="PLACE-PRE-SIMILARITY" Name="top_incremental_reuse_pre_placed.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-RQS-RPT" Name="postroute_physopt_report_qor_suggestions_0.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-RQS" Name="top_postroute_physopted.rqs"/>
   <File Type="ROUTE-DRC" Name="top_drc_routed.rpt"/>
+  <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
   <File Type="ROUTE-DRC-PB" Name="top_drc_routed.pb"/>
   <File Type="ROUTE-PWR-RPX" Name="top_power_routed.rpx"/>
   <File Type="ROUTE-STATUS" Name="top_route_status.rpt"/>
@@ -58,9 +61,13 @@
   <File Type="RCFI_FILE" Name="top.rcfi"/>
   <File Type="CFI_FILE" Name="top.cfi"/>
   <File Type="RNPI_FILE" Name="top.rnpi"/>
-  <File Type="NPI_FILE" Name="top.npi"/>
-  <File Type="RBD_FILE" Name="top.rbd"/>
-  <File Type="POSTROUTE-PHYSOPT-RQS" Name="top_postroute_physopted.rqs"/>
+  <File Type="ROUTE-SIMILARITY" Name="top_incremental_reuse_routed.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="top_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="top_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="top_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="top_bus_skew_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="top_bus_skew_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="top_bus_skew_postroute_physopted.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/bcdToSeg.v">

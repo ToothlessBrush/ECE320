@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 04/10/2024 11:46:30 AM
+// Create Date: 04/20/2024 11:53:01 PM
 // Design Name: 
-// Module Name: clkGen
+// Module Name: clkgen100khz
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -19,26 +19,34 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-// Clock generator module convert the 100Mhz clock to 1khz clock
-module clkGen(
-    input clk, //input clock
-    output reg clk1khz //output 1khz clock
+
+module clkgen100khz(
+    clk100MHz, // input 100MHz clock
+    reset, // input reset
+    clk100kHz // output 100kHz clock
     );
 
-    // Define parameters
-    parameter n = 1_000; // Clock frequency in Hz
-    parameter logn = 10; // Clock divider number of bits you need for counter rounded up from 9.965
+    input clk100MHz;
+    input reset;
+    output reg clk100kHz = 0;
 
-    // Define registers
-    reg [logn-1:0] counter;
+    parameter n = 100_000_000 / 100_000; // 100MHz / 100kHz
+    parameter log2n = $clog2(n); // log2(n)
 
-    // Clock generation 
-    always @(posedge clk) begin
-        if (counter == (n/2) - 1) begin //every half period of 1khz clock flip the 1khz clock
+    reg [log2n-1:0] counter;
+
+    
+    always @(posedge clk100MHz or posedge reset) begin
+        if (reset) begin
             counter <= 0;
-            clk1khz <= ~clk1khz;
+            clk100kHz <= 0;
         end else begin
-            counter <= counter + 1;
+            if (counter == (n/2)-1) begin
+                counter <= 0;
+                clk100kHz <= ~clk100kHz;
+            end else begin
+                counter <= counter + 1;
+            end
         end
     end
 

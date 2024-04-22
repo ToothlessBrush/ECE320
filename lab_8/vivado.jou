@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Sun Apr 21 23:29:32 2024
+# Process ID: 30912
+# Current directory: C:/dev/ECE320/lab_8
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent30236 C:\dev\ECE320\lab_8\lab_8.xpr
+# Log file: C:/dev/ECE320/lab_8/vivado.log
+# Journal file: C:/dev/ECE320/lab_8\vivado.jou
+# Running On: DESKTOP-462IOAI, OS: Windows, CPU Frequency: 3965 MHz, CPU Physical cores: 12, Host memory: 17099 MB
+#-----------------------------------------------------------
+start_gui

@@ -34,8 +34,6 @@ clk, col, row, reset, Seg, An, key_pressed
     output [7:0] An;
     output [3:0] row;
 
-    //wire
-    output key_pressed;
     wire [3:0] key;
     wire [6:0] sevenSeg;
     wire clkOnekhz;
@@ -47,19 +45,11 @@ clk, col, row, reset, Seg, An, key_pressed
 
     KeyPadScanner KeyPadScanner (
         .clk(clkOnekhz),
-        .col(col),
-        .row(row),
         .reset(reset),
-        .key_pressed(key_pressed)
-    );
-
-    keypadInterpreter keypadInterpreter (
-        .col(col),
+        .column(col),
         .row(row),
-        .reset(reset),
-        .key_pressed(key_pressed),
-        .key(key)
-    );
+        .keys(key),
+    ); 
 
     bcdToSeg bcdToSeg (
         .x(key),
@@ -79,7 +69,5 @@ clk, col, row, reset, Seg, An, key_pressed
         .seg(Seg),
         .an(An)
     );
-
-
 
 endmodule

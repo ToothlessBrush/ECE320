@@ -20,198 +20,65 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module KeyPadScanner (
-    clk,         // Clock input
-    reset,       // Reset input
-    col,   // Column input
-    row,   // Row output
-    key_pressed  // Key press output
+module keyPadScanner(
+    input clk, reset,
+    input [3:0]column,
+    output reg [3:0]row,
+    output reg [3:0]keys
+    );
 
-);
+    reg [2:0]counter;
+    reg [1:0]cValue;
+    reg [1:0]present, next;
 
-// Define inputs and outputs
-input clk;
-input reset;
-input [3:0] col;
-output reg [3:0] row;
-output reg key_pressed;
+    parameter S0 = 2'b00, S1 = 2'b01, S2 = 2'b10;
 
-// Define parameters
-parameter debounce_time = 1000; // 12ms debounce time
-parameter logn = 10;
-parameter num_rows = 4;
-
-// Define state constants
-parameter IDLE = 2'b00;
-parameter SCAN = 2'b01;
-parameter BOUNCE = 2'b10;
-
-reg [1:0] state = IDLE;
-reg [1:0] next;
-reg [logn-1:0] bounce_timer;
-reg [3:0] next_row = 4'b1110; //initial next row is 1110
-
-// Define state transition logic
-always @(posedge clk or posedge reset) begin
-    if (reset) begin
-        state <= IDLE;
+    initial begin
+        counter = 0;
+        row = 4'b0000;
+        keys = 4'b1101;
+        cValue = 0;
+        present = S0;
     end
-    else begin
-        state <= next;
+
+    always @* begin
+        case(present)
+            S0: if(~column[0] || ~column[1] || ~column[2] || ~column[3]) next = S1; else next = S0;
+            S1: if(counter == 4) next = S0; else if(column[cValue]) next = S2; else next = S1;
+            S2: if(~column[cValue]) next = S2; else next = S0;
+            default: next = S0;
+        endcase
     end
-end
 
-//state transition logic and output logic
-always @(posedge clk) begin
-    case (state)
-        IDLE: begin
-            // Ground all rows and check if columns are non-zero
-            row <= 4'b0000;
-            key_pressed <= 0;
-            if (col != 4'b1111) begin
-                // Columns are not non-zero, move to SCAN state
-                next <= SCAN;
-            end
+    always @(posedge clk, posedge reset) begin
+        if(reset) present <= S0;
+        else present <= next;
+    end
+
+    always @(posedge clk, posedge reset)
+    begin
+        if(reset)
+        begin
+            cValue <= 0;
+            counter <= 0;
         end
-        SCAN: begin
-            // Shift to next row and check for key press
-            row <= next_row;
-            if (bounce_timer < 1200) begin // Wait for debounce time 12ms
-                // Wait for debounce time
-                bounce_timer <= bounce_timer + 1;
-            end else begin
-                // Wait for debounce time
-                next <= BOUNCE;
-                bounce_timer <= 0; //reset debounce timer
-            end
-        end
-        BOUNCE: begin
-            // Check for key press after debounce time
-            if (col != 4'b1111) begin
-                // Key pressed, set key_pressed and move back to IDLE state
-                key_pressed <= 1;
-                next <= IDLE; 
-            end
-            next_row <= {next_row[2:0], next_row[3]}; //shift to next row 1110 1101 1011 0111
-            if (next_row == 4'b1110) begin
-                // All rows scanned, reset to IDLE state
-                next <= IDLE;
-            end else begin
-                // Move to next row
-                next <= SCAN;
-            end
-        end
-    endcase
-end
+        else
+            case(present)
+                S0: if(~column[0])cValue <= 0; else if(~column[1])cValue <= 1; 
+                    else if(~column[2])cValue <= 2; else if(~column[3])cValue <= 3;
+                S1: if(~column[cValue]) counter <= counter + 1;
+                S2: if(column[cValue])begin counter <= 0; cValue <= 0;end
+            endcase
+    end
 
-// // Define parameters
-// parameter debounce_time = 1000; // 12ms debounce time
-
-// // Define state constants
-// parameter IDLE = 2'b00;
-// parameter SCAN = 2'b01;
-// parameter BOUNCE = 2'b10;
-
-// // Define registers
-// reg [2:0] bounce_timer;
-// reg [3:0] next_row = 4'b1110; //initial next row is 1110
-// reg [1:0] state, next;
-
-// // Define state transition logic
-// always @(posedge clk or posedge reset) begin
-//     if (reset) begin
-//         state <= IDLE;
-//     end
-//     else begin
-//         state <= next;
-//     end
-// end
-
-// // Define state transition logic
-// always @(state, col, bounce_timer, next_row) begin
-//     case (state)
-//         IDLE: begin
-//             next <= col == 4'b1111 ? IDLE : SCAN;
-//         end
-//         SCAN: begin
-//             next <= bounce_timer >= 1000 ? BOUNCE : SCAN; //1200 is 12ms since the period is .01ms
-//         end
-//         BOUNCE: begin
-//             next <= col == 4'b1111
-//             ? next_row == 4'b1111 
-//                     ? IDLE 
-//                     : SCAN 
-//                 : SCAN;
-//         end
-//     endcase
-// end
-
-// // Define state output logic
-// always @(posedge clk) begin
-//     case (state)
-//         IDLE: begin //here is were we ground all rows and check if columns are non-zero
-//             row <= 4'b0000;
-//             next_row <= 4'b1110;
-//             key_pressed <= 0;
-//         end
-//         SCAN: begin //here is were we shift to the next row and wait for debounce time (time it takes button signal to stabilize)
-//             row <= next_row;
-//             if (bounce_timer < 1000) begin
-//                 bounce_timer <= bounce_timer + 1;
-//             end
-//         end
-//         BOUNCE: begin //here is were we check if a button in the row is pressed
-//             next_row <= next_row << 1; //1110, 1101, 1011, 0111
-//             bounce_timer <= 0; //reset debounce timer
-//             key_pressed <= col != 4'b1111;
-//         end
-//     endcase
-// end
-
-// always @(posedge clk) begin
-//     case (state)
-//         IDLE: begin
-//             // Ground all rows and check if columns are non-zero
-//             row <= 4'b0000;
-//             if (col != 4'b1111) begin
-//                 // Columns are not non-zero, move to SCAN state
-//                 next_row <= 4'b1110;
-//                 state <= SCAN;
-//             end
-//             key_pressed <= 0;
-//         end
-//         SCAN: begin
-//             // Shift to next row and check for key press
-//             row <= next_row;
-//             debounce_timer <= debounce_timer + 1;
-//             /*if counter == 1000
-//             {}*/
-//             if (debounce_timer == 1000) begin // Wait for debounce time 12ms
-//                 // Wait for debounce time
-//                 state <= DEBOUNCE;
-//             end
-//         end
-//         DEBOUNCE: begin
-//             // Check for key press after debounce time
-//             if (col != 4'b1111) begin
-//                 // Key pressed, set key_pressed and move back to IDLE state
-//                 key_pressed <= 1;
-//                 state <= IDLE;
-//             end else begin
-//                 // No key pressed, move to next row bit shift to next row and add one to row
-//                 next_row <= row << 1 + 1;
-//                 //reset debounce timer to give 12ms to scan
-//                 debounce_timer <= 0;
-//                 if (next_row == 4'b1111) begin
-//                     // All rows scanned, reset to IDLE state
-//                     state <= IDLE;
-//                 end else begin
-//                     // Move to next row
-//                     state <= SCAN;
-//                 end
-//             end
-//         end
-//     endcase
-// end
+    always @*
+    begin
+        case(present)
+            S0: begin row = 4'b0000; keys = 4'b1111;end
+            S1: begin row = 4'b0000; row[counter] = 1'b1; keys = 4'b1111;end  // set row to 1 to test output column 
+            S2: begin row = 4'b0000; keys = (cValue+counter*4);end    // if output column is 1, the pressed key is found, store it
+            default: begin row = 4'b0000; keys = 4'b1111;end
+        endcase
+    end
 
 endmodule
