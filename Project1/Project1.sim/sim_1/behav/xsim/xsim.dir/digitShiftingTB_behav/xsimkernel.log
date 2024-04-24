@@ -1,0 +1,4 @@
+Running: xsim.dir/digitShiftingTB_behav/xsimk.exe -simmode gui -wdb digitShiftingTB_behav.wdb -simrunnum 0 -socket 57907
+Design successfully loaded
+Design Loading Memory Usage: 7280 KB (Peak: 7280 KB)
+Design Loading CPU Usage: 15 ms
